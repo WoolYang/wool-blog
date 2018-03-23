@@ -8,7 +8,7 @@ promise代表异步操作的最终结果。 与promise互动的主要方式是�
 
 最后，核心Promises/A+规范不涉及如何创建（create），执行（fulfill）或拒绝（reject）promise，而是选择专注于提供可通用的_then_方法。 未来的配套规范工作可能涉及其他内容。
 
-## 1.术语
+## 1. 术语
 1.1 “promise”是具有一个其行为符合本规范的_then_方法的对象或函数。
 1.2 “thenable”是一个定义_then_方法的对象或函数。
 1.3 “value”是任何合法的JavaScript值（包括_undefined_， thenable或promise）。
