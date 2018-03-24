@@ -20,27 +20,30 @@ promise代表异步操作的最终结果。 与promise互动的主要方式是�
 
 promise必须处于以下三种状态中的一种：pending，fulfilled，rejected。
 
- * 可能转换到fulfilled状态或rejected状态。
+#### 2.1.2 pending状态
+* 可能转换到fulfilled状态或rejected状态。
 
 #### 2.1.2 fulfilled状态
-    不能再转换到其他状态。
-    必须有一个不能改变的值。
+* 不能再转换到其他状态。
+* 必须有一个不能改变的值。
 
 #### 2.1.3 rejected状态
-    不能再转换到其他状态
-    必须有一个不能改变的原因。
+* 不能再转换到其他状态
+* 必须有一个不能改变的原因。
 
-在这里，“不能改变”是指不可改变的身份（即===），但并不意味着深层不可变。
+**在这里，“不能改变”是指不可改变的身份（即===），但并不意味着深层不可变。**
 
 ### 2.2 then方法
-    promise必须提供一个_then_方法来获取其当前值或最终值或原因。
+promise必须提供一个_then_方法来获取其当前值或最终值或原因。
 
-    promise的_then_方法接受两个参数：
-    promise.then(onFulfilled, onRejected)
+promise的_then_方法接受两个参数：
+```js
+    promise.then(onFulfilled, onRejected)
+```
 
 #### 2.2.1 _onFulfilled_和_onRejected_都是可选参数：
-    如果_onFulfilled_不是函数，则必须忽略它。
-    如果_onRejected_不是函数，则必须忽略它。
+* 如果_onFulfilled_不是函数，则必须忽略它。
+* 如果_onRejected_不是函数，则必须忽略它。
 
 #### 2.2.2 如果_onFulfilled_是函数：
     必须在promise状态为fulfilled后被调用，promise的值作为第一个参数。
