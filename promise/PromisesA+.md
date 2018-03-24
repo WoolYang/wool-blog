@@ -30,7 +30,7 @@ promise必须处于以下三种状态中的一种：pending，fulfilled，reject
 * 必须有一个不能改变的值。
 
 #### 2.1.3 rejected状态
-* 不能再转换到其他状态
+* 不能再转换到其他状态。
 * 必须有一个不能改变的原因。
 
 **在这里，“不能改变”是指不可改变的身份（即===），但并不意味着深层不可变。**
@@ -84,9 +84,9 @@ thenable的特性使得promise的实现更通用：只要其暴露出一个遵�
 
 #### 2.3.2 如果x是一个promise，采用x的状态。注[3.4]
 * 如果x为pending状态，promise必须保持pending状态直到x为fulfilled或rejected。
-* 如果x为fulfilled状态，promise为fulfilled状态时与x同样的值
-* 如果x为rejected状态，promise为fulfilled状态时与x同样的原因
-    
+* 如果x为fulfilled状态，promise为fulfilled状态时与x同样的值。
+* 如果x为rejected状态，promise为fulfilled状态时与x同样的原因。
+    
 #### 2.3.3如果x为一个对象或函数
 * 把x.then赋给then
 * 如果检索到属性x.then导致抛出异常e，promise为rejected状态并以e为原因。
@@ -94,8 +94,8 @@ thenable的特性使得promise的实现更通用：只要其暴露出一个遵�
     * 当resolvePromise以值y调用，运行[[Resolve]](promise, y)。
     * 当rejectPromise以原因r被调用时，promise以r为原因拒绝。
     * 当resolvePromise和rejectPromise都被调用，或者对同一个参数进行多次调用，则第一次调用优先，并且任何进一步调用都会被忽略。
-    * 如果调用_then_抛出异常e
-        * 如果resolvePromise或rejectPromise已被调用，请忽略它。
+    * 如果调用_then_抛出异常e：
+        * 如果resolvePromise或rejectPromise已被调用，请忽略它。
         * 否则，promise以e为原因拒绝。
     * 如果那不是一个函数，promise为fulfilled状态时以x为值。
 * 如果x不是一个对象或函数，promise为fulfilled状态时以x为值。
