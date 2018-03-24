@@ -46,26 +46,27 @@ promise的_then_方法接受两个参数：
 * 如果_onRejected_不是函数，则必须忽略它。
 
 #### 2.2.2 如果_onFulfilled_是函数：
-    必须在promise状态为fulfilled后被调用，promise的值作为第一个参数。
-    在promise状态为fulfilled前不能被调用。
-    不能被多次调用。
+* 必须在promise状态为fulfilled后被调用，promise的值作为第一个参数。
+* 在promise状态为fulfilled前不能被调用。
+* 不能被多次调用。
 
 #### 2.2.3 如果_onRejected_是函数：
-    必须在promise状态为rejected后被调用，promise的reason是它的第一个参数。
-    在promise状态为rejected前不能被调用。
-    不能被多次调用。
+* 必须在promise状态为rejected后被调用，promise的reason是它的第一个参数。
+* 在promise状态为rejected前不能被调用。
+* 不能被多次调用。
 
 #### 2.2.4 在执行上下文堆栈仅包含平台代码之前，不能调用_onFulfilled_或_onRejected_。注[3.1]
 
 #### 2.2.5 _onFulfilled_和_onRejected_必须作为为函数被调用（即没有这个值）。注[3.2]
 
 #### 2.2.6 _then_可能会在同一个promise上被多次调用。
-    当promise为fulfilled状态时，所有各自的_onFulfilled_回调必须按照其注册的顺序执行_then_。
-    当promise为rejected状态时，所有各自的_onRejected_回调必须按照其注册的顺序执行_then_。
+* 当promise为fulfilled状态时，所有各自的_onFulfilled_回调必须按照其注册的顺序执行_then_。
+* 当promise为rejected状态时，所有各自的_onRejected_回调必须按照其注册的顺序执行_then_。
 #### 2.2.7 then必须返回一个promise。注[3.3]
+```js
     promise2 = promise1.then(onFulfilled, onRejected);
-
-    如果_onFulfilled_或_onRejected_返回一个值x，则运行下面promise处理程序 [[Resolve]](promise2,x)。
+```
+* 如果_onFulfilled_或_onRejected_返回一个值x，则运行下面promise处理程序 [[Resolve]](promise2,x)。
     如果_onFulfilled_或_onRejected_抛出异常e，promise2必须为rejected状态并以e为原因。
     如果_onFulfilled_不是函数并且promise1为fulfilled状态，那么promise2必须为fulfilled状态并与promise1值相同。
     如果_onRejected_不是函数并且promise1为rejected状态，那么promise2必须为rejected状态并与promise1原因相同。
@@ -76,21 +77,23 @@ promise的_then_方法接受两个参数：
     要运行[[Resolve]](promise, x)，请执行以下步骤：
 
 #### 2.3.1 如果promise和x引用同一个对象，则以_TypeError_为理由拒绝promise。
+
 #### 2.3.2 如果x是一个promise，采用x的状态。注[3.4]
-    如果x为pending状态，promise必须保持pending状态直到x为fulfilled或rejected。
-    如果x为fulfilled状态，promise为fulfilled状态时与x同样的值
-    如果x为rejected状态，promise为fulfilled状态时与x同样的原因
+* 如果x为pending状态，promise必须保持pending状态直到x为fulfilled或rejected。
+* 如果x为fulfilled状态，promise为fulfilled状态时与x同样的值
+* 如果x为rejected状态，promise为fulfilled状态时与x同样的原因
+    
 #### 2.3.3如果x为一个对象或函数
-    把x.then赋给then
-    如果检索到属性x.then导致抛出异常e，promise为rejected状态并以e为原因。
-    如果then是函数，则使用x作为this调用函数，第一个参数为resolvePromise，第二个参数为rejectPromise，其中：
-        当resolvePromise以值y调用，运行[[Resolve]](promise, y)。
-        当rejectPromise以原因r被调用时，promise以r为原因拒绝。
-        当resolvePromise和rejectPromise都被调用，或者对同一个参数进行多次调用，则第一次调用优先，并且任何进一步调用都会被忽略。
-        如果调用_then_抛出异常e
-            如果resolvePromise或rejectPromise已被调用，请忽略它。
-            否则，promise以e为原因拒绝。
-        如果那不是一个函数，promise为fulfilled状态时以x为值。
-    如果x不是一个对象或函数，promise为fulfilled状态时以x为值。
+* 把x.then赋给then
+* 如果检索到属性x.then导致抛出异常e，promise为rejected状态并以e为原因。
+* 如果then是函数，则使用x作为this调用函数，第一个参数为resolvePromise，第二个参数为rejectPromise，其中：
+    * 当resolvePromise以值y调用，运行[[Resolve]](promise, y)。
+    * 当rejectPromise以原因r被调用时，promise以r为原因拒绝。
+    * 当resolvePromise和rejectPromise都被调用，或者对同一个参数进行多次调用，则第一次调用优先，并且任何进一步调用都会被忽略。
+    * 如果调用_then_抛出异常e
+        * 如果resolvePromise或rejectPromise已被调用，请忽略它。
+        * 否则，promise以e为原因拒绝。
+    * 如果那不是一个函数，promise为fulfilled状态时以x为值。
+* 如果x不是一个对象或函数，promise为fulfilled状态时以x为值。
 
 如果一个promise是通过参与一个循环的thenable链来解决的，那么[[Resolve]](promise, thenable)的递归性质最终会导致[[Resolve]](promise, thenable)被再次调用， 上述算法将导致无限递归。鼓励实现，但不是必需的，若检测到这种递归，用一个_TypeError_信息来拒绝 promise。注[3.6]
