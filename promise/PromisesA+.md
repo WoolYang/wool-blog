@@ -101,3 +101,24 @@ thenable的特性使得promise的实现更通用：只要其暴露出一个遵�
 * 如果x不是一个对象或函数，promise为fulfilled状态时以x为值。
 
 如果一个promise是通过参与一个循环的thenable链来解决的，那么[[Resolve]](promise, thenable)的递归性质最终会导致[[Resolve]](promise, thenable)被再次调用， 上述算法将导致无限递归。鼓励实现，但不是必需的，若检测到这种递归，用一个_TypeError_信息来拒绝 promise。注[3.6]
+
+## 3. 注解
+### 注3.1
+这里“平台代码”是指引擎，环境和promise实现代码。 在实践中，这个要求确保_onFulfilled_和_onRejected_异步执行，在被调用的那一轮事件循环之后的新执行栈中执行. 这可以使用诸如setTimeout或setImmediate之类的“宏任务”机制或者使用诸如MutationObserver或process.nextTick之类的“微任务”机制来实现。 由于promise实现被认为是平台代码，因此它本身可能包含一个调用处理程序的任务调度队列。
+
+### 注3.2
+也就是说，在严格模式下，this为undefined; 在非严格模式下，this将指向全局对象。
+
+### 注3.3
+如果实现符合所有要求，实现可能允许promise2 === promise1。 每个实现应该记录它是否可以产生promise2 === promise1以及在什么条件下。
+
+### 注3.4
+一般来说，如果 x 符合当前实现，我们才认为它是真正的 promise 。 这个规则允许使用具体实现方式来采用符合已知要求的 promise 状态。
+
+### 注3.5
+先s是存储对x.then的引用，然后测试该引用并调用，以避免对x.then属性的多次访问。 这样的预防措施对于确保访问属性的一致性非常重要，因为值可能会在检索之间发生变化。
+
+### 注3.6
+实现不应该对 thenable 链的深度设置任意限制，并且假定超出该任意限制递归将是无限的。 只有真正的循环引用应该导致TypeError; 如果遇到无限链是不同的 thenable ，永远递归是正确的行为。
+
+
