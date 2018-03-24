@@ -1,3 +1,5 @@
+# Promises/A+规范（翻译）
+
 **对于实现者来说，这是一个开放标准，用于实现可靠的，可互操作的JavaScript Promise。**
 
 promise代表异步操作的最终结果。 与promise互动的主要方式是通过其_then_的方法，该方法注册回调以接收promise的最终值或promise无法执行（fulfill）的原因。
