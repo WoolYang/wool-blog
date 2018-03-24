@@ -94,7 +94,7 @@ thenable的特性使得promise的实现更通用：只要其暴露出一个遵�
     * 当resolvePromise以值y调用，运行[[Resolve]](promise, y)。
     * 当rejectPromise以原因r被调用时，promise以r为原因拒绝。
     * 当resolvePromise和rejectPromise都被调用，或者对同一个参数进行多次调用，则第一次调用优先，并且任何进一步调用都会被忽略。
-    * 如果调用_then_抛出异常e：
+    * 如果调用_then_抛出异常e：
         * 如果resolvePromise或rejectPromise已被调用，请忽略它。
         * 否则，promise以e为原因拒绝。
     * 如果那不是一个函数，promise为fulfilled状态时以x为值。
