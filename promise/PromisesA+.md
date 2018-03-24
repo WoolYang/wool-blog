@@ -67,14 +67,16 @@ promise的_then_方法接受两个参数：
     promise2 = promise1.then(onFulfilled, onRejected);
 ```
 * 如果_onFulfilled_或_onRejected_返回一个值x，则运行下面promise处理程序 [[Resolve]](promise2,x)。
-    如果_onFulfilled_或_onRejected_抛出异常e，promise2必须为rejected状态并以e为原因。
-    如果_onFulfilled_不是函数并且promise1为fulfilled状态，那么promise2必须为fulfilled状态并与promise1值相同。
-    如果_onRejected_不是函数并且promise1为rejected状态，那么promise2必须为rejected状态并与promise1原因相同。
+* 如果_onFulfilled_或_onRejected_抛出异常e，promise2必须为rejected状态并以e为原因。
+* 如果_onFulfilled_不是函数并且promise1为fulfilled状态，那么promise2必须为fulfilled状态并与promise1值相同。
+* 如果_onRejected_不是函数并且promise1为rejected状态，那么promise2必须为rejected状态并与promise1原因相同。
 
 ### 2.3 promise处理程序
-    promise处理程序是一个抽象操作，输入为一个promise和一个值，我们表示为[[Resolve]](promise, x)。如果x是一个thenable且有点像一个promise，处理程序尝试promise采用x的状态。 否则，处理程序用值x执行promise。
-    thenable的特性使得promise的实现更通用：只要其暴露出一个遵循Promise/A+的_then_方法即可；这同时也使遵循Promise/A+规范的实现可以与那些不太规范但还可用的实现不相冲突。
-    要运行[[Resolve]](promise, x)，请执行以下步骤：
+promise处理程序是一个抽象操作，输入为一个promise和一个值，我们表示为[[Resolve]](promise, x)。如果x是一个thenable且有点像一个promise，处理程序尝试promise采用x的状态。 否则，处理程序用值x执行promise。
+
+thenable的特性使得promise的实现更通用：只要其暴露出一个遵循Promise/A+的_then_方法即可；这同时也使遵循Promise/A+规范的实现可以与那些不太规范但还可用的实现不相冲突。
+
+要运行[[Resolve]](promise, x)，请执行以下步骤：
 
 #### 2.3.1 如果promise和x引用同一个对象，则以_TypeError_为理由拒绝promise。
 
