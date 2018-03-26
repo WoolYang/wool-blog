@@ -73,6 +73,6 @@ c.then方法参数不是函数，promise1得到最终结果，返回的promise�
 
 promise处理程序处理then方法的返回值，并将返回值作转换处理，返回promise或将普通值包装为promise返回，遇到异常会向后传递。这种机制为then方法的链式调用和异常捕获提供了基础方案。
 
-### 什么是promise?
+## 什么是promise?
 
 致此，通过解读promises/A+规范全面认识了promise核心及行为特性，完成了对promise拆卸，后文会继续解读promise API以及如何按照规范一步一步实现一个promise。
