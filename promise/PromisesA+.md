@@ -59,7 +59,7 @@ promise的_then_方法接受两个参数：
 
 #### 2.2.4 在执行上下文堆栈仅包含平台代码之前，不能调用_onFulfilled_或_onRejected_。注[3.1]
 
-#### 2.2.5 _onFulfilled_和_onRejected_必须作为为函数被调用（即没有这个值）。注[3.2]
+#### 2.2.5 _onFulfilled_和_onRejected_必须作为函数被调用（即没有这个值）。注[3.2]
 
 #### 2.2.6 _then_可能会在同一个promise上被多次调用。
 * 当promise为fulfilled状态时，所有各自的_onFulfilled_回调必须按照其注册的顺序执行_then_。
