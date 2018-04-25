@@ -7,5 +7,5 @@
 * [玩转promise API]
 * [重新组装！实现一个符合Promise/A+规范的promise]
 
-###ecmascirpt系列
+### ecmascirpt系列
 * [聊聊原型](https://github.com/WoolYang/wool-blog/blob/master/promise/PromisesA%2B.md)
