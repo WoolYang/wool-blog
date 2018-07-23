@@ -8,4 +8,4 @@
 * [重新组装！实现一个符合Promise/A+规范的promise]
 
 ### ecmascirpt系列
-* [聊聊原型](https://github.com/WoolYang/wool-blog/blob/master/promise/PromisesA%2B.md)
+* [聊聊原型与继承](https://github.com/WoolYang/wool-blog/blob/master/ecmascript/%E8%81%8A%E8%81%8A%E5%8E%9F%E5%9E%8B.md)
