@@ -14,4 +14,4 @@
 * [我是如何构建小程序应用](https://github.com/WoolYang/wool-blog/blob/master/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BA%94%E7%94%A8.md)
 
 ### react15.6源码赏析
-* [工程目录架构](https://github.com/WoolYang/wool-blog/blob/master/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BA%94%E7%94%A8.md)
+* [工程结构](https://github.com/WoolYang/wool-blog/blob/master/react15.6/%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84.md)
