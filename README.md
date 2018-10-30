@@ -17,4 +17,4 @@
 * [工程结构](https://github.com/WoolYang/wool-blog/blob/master/react15.6/%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84.md)
 
 ### 未分类
-* [compose函数](https://github.com/WoolYang/wool-blog/blob/master/react15.6/%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84.md)
+* [compose函数](https://github.com/WoolYang/wool-blog/blob/master/%E6%9C%AA%E5%88%86%E7%B1%BB/compose%E5%87%BD%E6%95%B0.md)
