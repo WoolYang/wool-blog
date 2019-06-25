@@ -1,4 +1,4 @@
-# Promises/A+规范（翻译）
+# Promises/A+规范（翻译） 
 
 **对于实现者来说，这是一个开放标准，用于实现可靠的，可互操作的JavaScript Promise。**
 
